@@ -4,6 +4,7 @@
 body,
 html {
   background-color: #f4f7fc;
+  font-family: 'Roboto', sans-serif;
 }
 
 .container-header{
@@ -26,7 +27,11 @@ html {
 }
 
 .title {
-
+  color: #f5f57f;
+  font-family: 'Pokemon Solid', sans-serif;
+  font-size: 3rem;
+  text-align: center;
+  -webkit-text-stroke: 1px #113cb3;
 }
 
 .container-section {
@@ -50,5 +55,23 @@ html {
 }
 
 .container-footer {
+  background-color: #5a6068;
+  bottom: 0;
+  color: #fff;
+  display: flex;
+  justify-content: space-around;
+  padding: 0.6rem;
+  position: fixed;
+  width: 100vw;
+}
 
+p {
+  font-size: 1.1rem;
+  font-weight: 650;
+  margin-top: 0.938rem;
+}
+
+.logo-github {
+  height: 2.8rem;
+  width: 2.8rem;
 }
