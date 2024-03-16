@@ -5,3 +5,50 @@ body,
 html {
   background-color: #f4f7fc;
 }
+
+.container-header{
+  background-color: #f5f57f;
+  border-bottom: 2px solid #113cb3;
+  display: flex;
+  justify-content: center;
+  height: 7.19rem;
+  padding: 0.625rem;
+  width: 100vw;
+}
+
+.logo-pokemon {
+  height: 5.65rem;
+  width: 18.75rem;
+}
+
+.container-main {
+
+}
+
+.title {
+
+}
+
+.container-section {
+
+}
+
+.container-pokemon {
+
+}
+
+.content-pagination {
+
+}
+
+.btn {
+
+}
+
+.counter {
+
+}
+
+.container-footer {
+
+}
