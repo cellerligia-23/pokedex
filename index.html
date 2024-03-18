@@ -27,112 +27,28 @@
     <h1 class="title">POKÉDEX</h1>
 
     <section class="container-section" id="container-sectio">
-      <ol class="container-pokemons" id="container-pokemons">
       
-        <li class="cards-pokemons electric">
-          <span class="number">#001</span>
-          <span class="name">Pikachu</span>
-          
-          <div class="detail">
-          
-          <ol class="types">
-            <li class="type type-electric">Electric</li>
-          </ol>
-            <img 
-              src="./src/assets/img/png/Pikachu.png" 
-              alt="Pikachu"
-              class="pokemons-images"
-            />
-          </div>
-        </li>
-
-        <li class="cards-pokemons grass">
-          <span class="number">#002</span>
-          <span class="name">Bulbasaur</span>
-        
-          <div class="detail">
-        
-            <ol class="types">
-              <li class="type type-grass">Grass</li>
-            </ol>
-            <img 
-              src="./src/assets/img/png/Bulbasaur.png" 
-              alt="Bulbasaur"
-              class="pokemons-images"
-            />
-          </div>
-        </li>
-
-        <li class="cards-pokemons electric">
-          <span class="number">#001</span>
-          <span class="name">Pikachu</span>
-        
-          <div class="detail">
-        
-            <ol class="types">
-              <li class="type type-electric">Electric</li>
-            </ol>
-            <img 
-              src="./src/assets/img/png/Pikachu.png" 
-              alt="Pikachu"
-              class="pokemons-images"
-            />
-          </div>
-        </li>
-        
-        <li class="cards-pokemons grass">
-          <span class="number">#002</span>
-          <span class="name">Bulbasaur</span>
-        
-          <div class="detail">
-        
-            <ol class="types">
-              <li class="type type-grass">Grass</li>
-            </ol>
-            <img 
-              src="./src/assets/img/png/Bulbasaur.png" 
-              alt="Bulbasaur"
-              class="pokemons-images"
-            />
-          </div>
-        </li>
-
-        <li class="cards-pokemons electric">
-          <span class="number">#001</span>
-          <span class="name">Pikachu</span>
-        
-          <div class="detail">
-        
-            <ol class="types">
-              <li class="type type-electric">Electric</li>
-            </ol>
-            <img src="./src/assets/img/png/Pikachu.png" alt="Pikachu" class="pokemons-images" />
-          </div>
-        </li>
-
-        <li class="cards-pokemons grass">
-          <span class="number">#002</span>
-          <span class="name">Bulbasaur</span>
-        
-          <div class="detail">
-        
-            <ol class="types">
-              <li class="type type-grass">Grass</li>
-            </ol>
-            <img 
-              src="./src/assets/img/png/Bulbasaur.png" 
-              alt="Bulbasaur"
-              class="pokemons-images"
-            />
-          </div>
-        </li>
-      
-      </ol>
+      <ol class="container-pokemons" id="container-pokemons"></ol>
 
       <div class="content-pagination" id="content-pagination">
-        <button type="button" class="btn btn-pagination-back" disabled>Voltar</button>
+        <button 
+          type="button" 
+          class="btn btn-pagination-back" 
+          id="btn-pagination-back" 
+          disabled
+        >
+          Voltar
+        </button>
+
         <span class="counter" id="counter">1</span>
-        <button type="button" class="btn btn-pagination-next">Próximo</button>
+
+        <button 
+          type="button" 
+          class="btn btn-pagination-next" 
+          id="btn-pagination-next"
+        >
+          Próximo
+        </button>
       </div>
     </section>
   </main>
