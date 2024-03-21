@@ -203,15 +203,15 @@ p {
   }
 
   p {
-    font-size: 1.1rem;
+    font-size: .9rem;
   }
 
   .logo-github {
-    height: 2.8rem;
-    width: 2.8rem;
+    height: 2rem;
+    width: 2rem;
   }
 
   .container-footer {
-    position: fixed;
+    padding: .2rem;
   }
 }
