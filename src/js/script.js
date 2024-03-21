@@ -1,3 +1,4 @@
+const input_text = document.getElementById("search");
 const ol = document.getElementById("container-pokemons");
 const btnNext = document.getElementById("btn-pagination-next");
 const btnBack = document.getElementById("btn-pagination-back");
@@ -17,22 +18,47 @@ const createListPokemon = (pokemon) => {
             .map((type) => `<li class="type type-${pokemon.type}">${type}</li>`)
             .join("")}
         </ol>
-        <img src=${pokemon.imgSrc} alt=${pokemon.name} class="pokemons-images" />
+        <img src=${pokemon.imgSrc} alt=${
+    pokemon.name
+  } class="pokemons-images" />
       </div>
     </li>`;
 };
 
-function counterPageNext(){
-  let sum = Number(counter.innerHTML);
-  
-  counter.innerHTML = sum + 1;
-};
+function removerSpecials(texto) {
+  // eliminando acentuação
+  texto = texto.replace(/[ÀÁÂÃÄÅ]/, "A");
+  texto = texto.replace(/[àáâãäå]/, "a");
+  texto = texto.replace(/[ÈÉÊË]/, "E");
+  texto = texto.replace(/[èéê]/, "e");
+  texto = texto.replace(/[Ç]/, "C");
+  texto = texto.replace(/[ç]/, "c");
+  texto = texto.replace(/[Ñ]/, "N");
+  texto = texto.replace(/[ñ]/, "n");
 
-function counterPageBack(){
+  return texto.replace(/[^a-z0-9]/gi, " ");
+}
+
+function filterPokemon() {
+  const cards_pokemons = document.querySelectorAll(".cards-pokemons");
+  let format_input_text = input_text.value.toLocaleLowerCase();
+  console.log(cards_pokemons);
+  console.log(format_input_text);
+}
+
+input_text.addEventListener("input", filterPokemon);
+
+function counterPageNext() {
   let sum = Number(counter.innerHTML);
-  
+
+  counter.innerHTML = sum + 1;
+}
+
+function counterPageBack() {
+  let sum = Number(counter.innerHTML);
+
   counter.innerHTML = sum - 1;
-};
+}
 
 function buttons(offset, limit) {
   pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
