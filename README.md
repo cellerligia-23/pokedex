@@ -21,26 +21,32 @@ Aqui você vai encontrar um pequeno projeto em HTML, CSS e JavaScript.
 
 ## DESCRIÇÃO DO PROJETO :computer:
 
-Uso o JavaScript para criar uma Pokédex.
+Esse é um projeto básico de Pokédex.
 
 A Pokédex (palavra comum no vocabulário dos amantes de Pokémon) é uma enciclopédia virtual que detém todas as espécies de pokémon.
 
 Para fazer a lista de Pokémons, usei a **<a href="https://pokeapi.co/api/v2/pokemon/">API</a>** de pokémons, que é grátis.
 
-Usei a função Fetch/then para acessar a API e pegar as informaçãos dos pokémons. Também coloquei paginação.
+Usei a função Fetch/Then e Async/Await para acessar a API e pegar as informaçãos dos pokémons. Também adicionei dois botões e um contador para criar uma paginação.
 
 <br/>
 <div align="center">
- <img 
-    src="./src/assets/img/img_projects/pokedex_01.png"
+<img 
+    src="./src/assets/img/img_projects/pokedex_03.png"
     alt="imagem do projeto" width="150" border="2"
   />
   <img 
     src="./src/assets/img/img_projects/pokedex_02.png"
     alt="imagem do projeto" width="150" border="2"
   />
+   <img 
+    src="./src/assets/img/img_projects/pokedex_01.png"
+    alt="imagem do projeto" width="150" border="2"
+  />
 </div>
 <br/>
+
+Também é possível buscar um Pokémon especifico, usando o **input** de busca. 
 
 ### GIF DO PROJETO
 
@@ -50,7 +56,6 @@ Usei a função Fetch/then para acessar a API e pegar as informaçãos dos poké
     src="./src/assets/img/img_projects/git_projects.gif"
     alt="git do projeto" width="350" border="2"
   />
- 
 </div>
 <br/>
 <br/>
