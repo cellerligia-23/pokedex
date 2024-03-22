@@ -7,6 +7,7 @@ const counter = document.getElementById("counter");
 let offset = 0;
 let limit = 8; // Quantos pokémon vamos buscar por vez.
 
+/****** FUNÇÃO PARA CRIAR A LISTA DE POKÉMONS *******/
 const createListPokemon = (pokemon) => {
   return `
     <li class="cards-pokemons ${pokemon.type}">
@@ -26,6 +27,7 @@ const createListPokemon = (pokemon) => {
     </li>`;
 };
 
+/****** FUNÇÃO PARA FILTRAR OS POKÉMONS ***************/
 async function buttonFilterPokemon() {
   const name = input_text.value.toLowerCase();
   const pokemon = await pokeApi.getPokemosName(name);
@@ -36,6 +38,7 @@ async function buttonFilterPokemon() {
 
 button.addEventListener("click", buttonFilterPokemon);
 
+/****** FUNÇÃO PARA O CONTADOR DE PÁGINAS *************/
 function counterPageNext() {
   let sum = Number(counter.innerHTML);
 
@@ -48,7 +51,8 @@ function counterPageBack() {
   counter.innerHTML = sum - 1;
 };
 
-function buttons(offset, limit) {
+/****** FUNÇÃO PARA PEGAR OS POKÉMONS NA API E COLOCAR NA PÁGINA *******/
+function getListPokemons(offset, limit) {
   pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
     const listItens = pokemons
       .map((pokemon) => {
@@ -61,38 +65,61 @@ function buttons(offset, limit) {
   });
 };
 
+/****** FUNÇÃO QUANDO O INPUT ESTVER VAZIO *******/
 function checkEmptyInput() {
   if (!input_text.value) {
-    buttons(offset, limit);
+    getListPokemons(offset, limit);
   };
 };
 
 input_text.addEventListener("input", checkEmptyInput);
 
-buttons(offset, limit);
+/****** FUNÇÃO PARA FAZER A BUSCA USANDO O BOTÃO ENTER DO TELCADO *******/
+input_text.addEventListener("keypress", (event) => {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    buttonFilterPokemon();
+  }
+});
 
-btnNext.addEventListener("click", () => {
+/****** FUNÇÕES PARA OS BOTÕES VOLTAR E PRÓXIMO *******/
+function nextButtonFunction() {
   offset += limit;
 
   if (btnBack.disabled === true && offset > 0) {
     btnBack.disabled = false;
   };
 
-  buttons(offset, limit);
+  getListPokemons(offset, limit);
   counterPageNext();
-});
+};
 
-btnBack.addEventListener("click", () => {
+function backButtonFunction() {
   if (offset <= 8) {
     btnBack.disabled = true;
-  };
+  }
 
   offset -= limit;
 
-  buttons(offset, limit);
+  getListPokemons(offset, limit);
   counterPageBack();
+};
+
+btnNext.addEventListener("click", nextButtonFunction);
+btnBack.addEventListener("click", backButtonFunction);
+
+/****** FUNÇÕES PARA OS BOTÕES VOLTAR E PRÓXIMO USANDO AS TECLAS: SETA PARA A DIREITA/ESQUERDA *******/
+window.addEventListener("keydown", (event) => {
+  if (event.key === "ArrowRight") {
+    event.preventDefault();
+    nextButtonFunction();
+  } else if (event.key === "ArrowLeft") {
+    event.preventDefault();
+    backButtonFunction();
+  }
 });
 
+/****** FUNÇÃO PARA BUSCAR OS POKÉMONS ASSIM QUE A PÁGINA CARREGAR *******/
 window.onload = () => {
-  buttons(offset, limit);
+  getListPokemons(offset, limit);
 };
