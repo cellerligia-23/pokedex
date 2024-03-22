@@ -21,11 +21,16 @@ html {
   width: 15.75rem;
 }
 
+.error {
+  text-align: center;
+}
+
 .container-main {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 30px;
+  padding: 3rem;
 }
 
 .title {
@@ -36,13 +41,33 @@ html {
   padding: .9rem;
 }
 
+.container-filter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
 .search {
-  border: 2.5px solid #535340;
+  border: 2.5px solid #678cf1;
   border-radius: 1.25rem;
   padding: .625rem 1rem;
   margin-top: .5rem;
   margin-bottom: .5rem;
   width: 16rem;
+}
+
+.btn-filter{
+  background-color: #3562dd;
+  border: none;
+  border-radius: .625rem;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 650;
+  margin-top: .3rem;
+  padding: .5rem;
+  width: 6.25rem;
 }
 
 .container-section {
@@ -60,7 +85,7 @@ html {
 .cards-pokemons {
   background-color: #48D0B0;
   border-radius: 0.5rem;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 .25rem .5rem 0 rgba(0, 0, 0, 0.2);
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -71,7 +96,7 @@ html {
 }
 
 .cards-pokemons:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 .5rem 1rem 0 rgba(0, 0, 0, 0.5);
 }
 
 .cards-pokemons .detail {
@@ -83,7 +108,7 @@ html {
 
 .cards-pokemons .detail img {
   max-width: 100%;
-  height: 46px;
+  height: 2.9rem;
   align-self: flex-end;
 }
 
@@ -150,10 +175,11 @@ html {
   background-color: #5a6068;
   border-top: 2px solid #101016;
   bottom: 0;
+  position: fixed;
   color: #fff;
   display: flex;
   justify-content: space-around;
-  padding: 0.6rem;
+  padding: 0.4rem;
   width: 100vw;
 }
 
@@ -190,6 +216,17 @@ p {
     font-size: 3.5rem;
   }
 
+  .container-filter {
+    flex-direction: row;
+  }
+
+  .btn-filter {
+    height: 2.1rem;
+    margin-left: .9rem;
+    margin-top: 0;
+    width: 6.25rem;
+  }
+
   .container-pokemons {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
@@ -213,5 +250,10 @@ p {
 
   .container-footer {
     padding: .2rem;
+    position: absolute;
+  }
+
+  .container-main{
+    position: relative;
   }
 }

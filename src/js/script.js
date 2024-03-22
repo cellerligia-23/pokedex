@@ -1,4 +1,5 @@
 const input_text = document.getElementById("search");
+const button = document.getElementById("btn-filter");
 const ol = document.getElementById("container-pokemons");
 const btnNext = document.getElementById("btn-pagination-next");
 const btnBack = document.getElementById("btn-pagination-back");
@@ -25,40 +26,27 @@ const createListPokemon = (pokemon) => {
     </li>`;
 };
 
-function removerSpecials(texto) {
-  // eliminando acentuação
-  texto = texto.replace(/[ÀÁÂÃÄÅ]/, "A");
-  texto = texto.replace(/[àáâãäå]/, "a");
-  texto = texto.replace(/[ÈÉÊË]/, "E");
-  texto = texto.replace(/[èéê]/, "e");
-  texto = texto.replace(/[Ç]/, "C");
-  texto = texto.replace(/[ç]/, "c");
-  texto = texto.replace(/[Ñ]/, "N");
-  texto = texto.replace(/[ñ]/, "n");
+async function buttonFilterPokemon() {
+  const name = input_text.value.toLowerCase();
+  const pokemon = await pokeApi.getPokemosName(name);
+  
+  console.log(pokemon);
+  ol.innerHTML = pokemon;
+};
 
-  return texto.replace(/[^a-z0-9]/gi, " ");
-}
-
-function filterPokemon() {
-  const cards_pokemons = document.querySelectorAll(".cards-pokemons");
-  let format_input_text = input_text.value.toLocaleLowerCase();
-  console.log(cards_pokemons);
-  console.log(format_input_text);
-}
-
-input_text.addEventListener("input", filterPokemon);
+button.addEventListener("click", buttonFilterPokemon);
 
 function counterPageNext() {
   let sum = Number(counter.innerHTML);
 
   counter.innerHTML = sum + 1;
-}
+};
 
 function counterPageBack() {
   let sum = Number(counter.innerHTML);
 
   counter.innerHTML = sum - 1;
-}
+};
 
 function buttons(offset, limit) {
   pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
@@ -71,7 +59,15 @@ function buttons(offset, limit) {
 
     ol.innerHTML = listItens;
   });
-}
+};
+
+function checkEmptyInput() {
+  if (!input_text.value) {
+    buttons(offset, limit);
+  };
+};
+
+input_text.addEventListener("input", checkEmptyInput);
 
 buttons(offset, limit);
 
@@ -80,7 +76,7 @@ btnNext.addEventListener("click", () => {
 
   if (btnBack.disabled === true && offset > 0) {
     btnBack.disabled = false;
-  }
+  };
 
   buttons(offset, limit);
   counterPageNext();
@@ -89,10 +85,14 @@ btnNext.addEventListener("click", () => {
 btnBack.addEventListener("click", () => {
   if (offset <= 8) {
     btnBack.disabled = true;
-  }
+  };
 
   offset -= limit;
 
   buttons(offset, limit);
   counterPageBack();
 });
+
+window.onload = () => {
+  buttons(offset, limit);
+};
